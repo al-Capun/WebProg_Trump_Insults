@@ -1,0 +1,157 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulation</title>
+</head>
+
+<body>
+  <canvas id="canvas" width="800" height="400" style="border: 1px solid gray"></canvas>
+
+  <script>
+    let canvas = document.getElementById('canvas')
+    let context = canvas.getContext("2d");
+
+    const WIDTH = 800;
+    const HEIGHT = 400;
+    const RADIUS = 10;
+    const PADDLE_HEIGHT = 50;
+
+    class Ball {
+      constructor() {
+        this.reset();
+      }
+
+      reset() {
+        // Ball in die Mitte setzen
+        this.x = WIDTH / 2;
+        this.y = HEIGHT / 2;
+
+        // TODO Die Startrichtung sollte zufällig sein
+        this.dx = 5;
+        this.dy = 3;
+      }
+
+      move() {
+        this.x += this.dx;
+        this.y += this.dy;
+
+        // Kollisionen mit Wänden
+        if (this.x >= WIDTH - RADIUS) {
+          this.dx *= -1;
+          this.x = WIDTH - RADIUS;
+        }
+
+        if (this.x <= RADIUS) {
+          alert("Game over!");
+          ball.reset();
+        }
+
+        if (this.y >= HEIGHT - RADIUS) {
+          this.dy *= -1;
+          this.y = HEIGHT - RADIUS;
+        }
+
+        if (this.y <= RADIUS) {
+          this.dy *= -1;
+          this.y = RADIUS;
+        }
+
+        // Kollision mit Spieler 1
+        if (Math.abs(ball.x - player.x) < RADIUS && ball.y <= player.y + PADDLE_HEIGHT && ball.y >= player.y) {
+          this.dx *= -1;
+        }
+
+        // TODO Kollision imt Spieler 2?
+      }
+
+      draw(context) {
+        context.beginPath();
+        context.arc(this.x, this.y, 10, 0, 2 * Math.PI, false);
+        context.fillStyle = 'green';
+        context.fill();
+      }
+    }
+
+    class Player {
+      constructor() {
+        this.moving = 0;
+        this.x = 50; // TODO andere Position bei Spieler 2
+        this.y = HEIGHT / 2;
+      }
+
+      move() {
+        this.y = Math.min(Math.max(0, this.y + this.moving), HEIGHT - PADDLE_HEIGHT);
+      }
+
+      moveUp() {
+        this.moving = -10;
+      }
+
+      moveDown() {
+        this.moving = +10;
+      }
+
+      stop() {
+        this.moving = 0;
+      }
+
+      draw(context) {
+        context.beginPath();
+        context.moveTo(this.x, this.y);
+        context.lineTo(this.x, this.y + PADDLE_HEIGHT);
+        context.stroke();
+      }
+    }
+
+    let ball = new Ball();
+    let player = new Player();
+
+    // TODO zweiter Spieler?
+
+    function paint() {
+      // clear canvas
+      context.clearRect(0, 0, canvas.width, canvas.height);
+
+      ball.move();
+      player.move();
+
+      ball.draw(context);
+      player.draw(context);
+    }
+
+    // zentrale Spielschleife starten
+    setInterval(paint, 20);
+
+    document.onkeydown = function (e) {
+      // Pfeiltasten abfangen
+      // TODO weitere Tasten für Spieler 2?
+      switch (e.keyCode) {
+        case 38:
+          player.moveUp();
+          break;
+        case 40:
+          player.moveDown();
+          break;
+
+      }
+    };
+
+    document.onkeyup = function (e) {
+      // Loslassen der Tasten
+      // TODO weitere Tasten für Spieler 2?
+      switch (e.keyCode) {
+        case 38:
+        case 40:
+          player.stop();
+          break;
+      }
+    };
+
+  </script>
+</body>
+
+</html>
