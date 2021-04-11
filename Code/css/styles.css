@@ -1,0 +1,130 @@
+body {
+    display: block;
+    overflow-x: hidden;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 30px;
+    margin-bottom: 90px;
+    background-color: rgb(230, 230, 230);
+}
+
+nav {
+    background-color:rgb(230, 230, 230);
+}
+
+.navbar-brand {
+    align-items: center;
+}
+/*
+.navbar-brand {
+    font-size: 24px;
+    text-transform: uppercase;
+    font-weight: 900;
+}
+*/
+nav ul li a {
+    color:rgb(255, 166, 0);
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.section-one {
+    padding-top: 20px;
+    padding-bottom: 100px;
+}
+
+.section-one h1 {
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 600;
+    color:rgb(65, 201, 225);
+    text-align: right;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.section-one p{
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 600;
+    color: black;
+    text-align: right;
+}
+
+.card.one {
+    float: left;
+    margin-top: 200px;
+    padding: 30px;
+    margin-bottom: 60px;
+    background-color: rgb(230, 230, 230) ;
+}
+
+.card p{
+    text-align: left;
+    color: black;
+}
+
+
+.section-two {
+    padding-top: 50px;
+    padding-bottom: 100px;
+}
+
+.section-two h1 {
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 600;
+    color: gray;
+    text-align: left;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.section-two h2 {
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 600;
+    color:rgb(65, 201, 225);
+    text-align: left;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.section-two p{
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 600;
+    color: black;
+    text-align: left;
+}
+
+.card-two {
+    float: left;
+    margin-top: 20px;
+    margin-right: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 30px;
+    background-color: rgb(34, 174, 230);
+}
+
+.card-two h1 {
+    text-align: right;
+    color: white;
+}
+
+.card-two p{
+    text-align: left;
+    color: black;
+}
+
+.button {
+    background-color: white;
+    color: black;
+}
+
+img {
+    max-width: 10px;
+    padding-top: 180px;
+
+}
