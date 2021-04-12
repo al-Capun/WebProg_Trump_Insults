@@ -7,10 +7,70 @@ body {
     background-color: rgb(230, 230, 230);
 }
 
-.navigation-bar ul li a {
-    color:rgb(255, 166, 0);
-    font-size: 18px;
+/* sidebar */
+.sidenav-container {
+    width: 160px; /* Set the width of the sidebar */
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: #rgb(230, 230, 230); /* Black */
+    padding-top: 10px;
+    padding-left: 15px;
+}
+
+.sidenav {
+    width: 160px; /* Set the width of the sidebar */
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: #rgb(230, 230, 230); /* Black */
+    padding-top: 100px;
     padding-left: 100px;
+  }
+  
+  /* The navigation menu links */
+  .sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 18px;
+    color: rgb(255, 166, 0);
+    display: block;
+  }
+  
+  /* When you mouse over the navigation links, change their color */
+  .sidenav a:hover {
+    color: rgb(65, 201, 225);
+  }
+  
+  /* Style page content */
+  .main {
+    margin-left: 160px; /* Same as the width of the sidebar */
+    padding: 0px 10px;
+  }
+  
+  /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }
+
+  .card-pfeil{
+    margin-top: 50px;
+    text-align: center;
+}
+
+.card-pfeil-icon{
+    font-size: 16px;
+    text-align: center;
+    color:rgb(65, 201, 225);
+}
+
+.section-next {
+    color: rgb(95, 94, 94);
+    font-weight: 500;
+
 }
 
 .section-one {
@@ -60,18 +120,6 @@ body {
     color: black;
 }
 
-.card-pfeil{
-    margin-top: 50px;
-    text-align: center;
-    color:rgb(65, 201, 225);
-
-}
-
-.section-next {
-    color: rgb(95, 94, 94);
-    font-weight: 500;
-
-}
 
 .section-two {
     padding-top: 50px;
