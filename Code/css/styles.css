@@ -1,36 +1,21 @@
 body {
     display: block;
     overflow-x: hidden;
-    margin-left: 50px;
-    margin-right: 50px;
-    margin-top: 30px;
+    margin-left: 10px;
+    margin-right: 20px;
     margin-bottom: 90px;
     background-color: rgb(230, 230, 230);
 }
 
-nav {
-    background-color:rgb(230, 230, 230);
-}
-
-.navbar-brand {
-    align-items: center;
-}
-/*
-.navbar-brand {
-    font-size: 24px;
-    text-transform: uppercase;
-    font-weight: 900;
-}
-*/
-nav ul li a {
+.navigation-bar ul li a {
     color:rgb(255, 166, 0);
-    font-size: 20px;
-    margin-bottom: 10px;
+    font-size: 18px;
+    padding-left: 100px;
 }
 
 .section-one {
-    padding-top: 20px;
-    padding-bottom: 100px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .section-one h1 {
@@ -38,25 +23,36 @@ nav ul li a {
     font-size: 16px;
     font-weight: 600;
     color:rgb(65, 201, 225);
-    text-align: right;
+    text-align: left;
     margin-bottom: 20px;
     margin-top: 20px;
 }
 
-.section-one p{
+.col p{
     text-transform: uppercase;
     font-size: 16px;
     font-weight: 600;
     color: black;
-    text-align: right;
+    text-align: left;
+}
+
+.card-body p{
+    font-size: 16px;
+    font-weight: 600;
+    color: black;
+    text-align: left;
+}
+
+.card-textI {
+    color: rgb(95, 94, 94);
+    font-weight: 500;
+    margin-top: 280px;
 }
 
 .card.one {
     float: left;
-    margin-top: 200px;
-    padding: 30px;
-    margin-bottom: 60px;
-    background-color: rgb(230, 230, 230) ;
+    background-color: rgb(230, 230, 230);
+    margin-top: 40px;
 }
 
 .card p{
@@ -64,6 +60,18 @@ nav ul li a {
     color: black;
 }
 
+.card-pfeil{
+    margin-top: 50px;
+    text-align: center;
+    color:rgb(65, 201, 225);
+
+}
+
+.section-next {
+    color: rgb(95, 94, 94);
+    font-weight: 500;
+
+}
 
 .section-two {
     padding-top: 50px;
@@ -90,21 +98,13 @@ nav ul li a {
     margin-top: 20px;
 }
 
-.section-two p{
-    text-transform: uppercase;
-    font-size: 16px;
-    font-weight: 600;
-    color: black;
-    text-align: left;
-}
-
 .card-two {
     float: left;
     margin-top: 20px;
-    margin-right: 10px;
+    margin-right: 70px;
     padding-bottom: 10px;
     padding-left: 10px;
-    padding-right: 30px;
+    padding-right: 55px;
     background-color: rgb(34, 174, 230);
 }
 
@@ -123,8 +123,21 @@ nav ul li a {
     color: black;
 }
 
-img {
-    max-width: 10px;
-    padding-top: 180px;
+.card-descriptionI {
+    color:  rgb(95, 94, 94);
+    font-weight: 500;
+    padding-top: 150px;
 
+}
+
+.card-descriptionII {
+    color:  rgb(95, 94, 94);
+    font-weight: 500;
+    padding-top: 20px;
+
+}
+
+img {
+    max-width: 70px;
+    padding-top: 20px;
 }

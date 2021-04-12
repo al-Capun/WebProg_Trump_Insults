@@ -10,14 +10,10 @@
     <title>Trump Twitter</title>
   </head>
   <body>
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-2">
-          <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <ul class="nav flex-column navbar-expand-lg navbar-light bg-light fixed">
-              <li class="nav-item">
-                <a class="navbar-brand" href="#"><img src="img/trump.jfif" alt</a>
-              </li>
+    <div class="navigation-bar">
+      <div id="navigation-container">
+        <img src="img/trump.jfif">
+            <ul class="nav flex-column navbar-expand-lg">
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="#">Random</a>
               </li>
@@ -48,7 +44,8 @@
 
           </div>
           <div class="col-sm-7">
-            <div class="card one" style="width: 35rem;">
+            <p class="card-textI">Hier findest du zufällige Beleidigungen von Trump auf Twitter im Zeitraum Mai 2015 bis November 2019.</p>
+            <div class="card one" style="width: 40rem;">
               <div class="card-body">
                   <p class="card-text">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam</p>
               </div>
@@ -69,15 +66,34 @@
         </div>
       </section>
 
+      <section class="section-next">
+        <div class="row">
+          <div class="col-sm-2">
+          </div>
+          <div class="col-sm-7">
+            <p class="card-pfeil">Random Pfeil</p>
+          </div>
+        </div>
+      </section>
+      
+      <button type="button" class="btn btn-default btn-lg">
+        <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span> Star
+      </button>
+
+      <button type="button" class="btn btn-default btn-lg">
+        <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span>
+      </button
+
       <!--Favorites Section-->
       <section class="section-two">
         <div class="row">
           <div class="col-sm-2">
-
           </div>
 
           <div class="col-sm-7">
+            <p class="card-descriptionI">Diese Tweets haben die meisten Likes auf Twitter erhalten.</p>
             <img src="img/graph.jfif" class="img-fluid" alt="img-fluid">
+            <p class="card-descriptionII">Fahre über die Grafik für mehr Informationen.</p>
           </div>
 
           <div class="col-sm-3">
@@ -117,6 +133,16 @@
         </div>
       </section>
 
+      <section class="section-next">
+        <div class="row">
+          <div class="col-sm-2">
+          </div>
+          <div class="col-sm-7">
+            <p class="card-pfeil">Favorites Pfeil</p>
+          </div>
+        </div>
+      </section>
+
       <!--Retweets Section-->
       <section id="retweets">
         <div class="row">
@@ -149,118 +175,6 @@
 
     </div>
 
-<!--Hallo-->
-
-
-
-
-      <!--nav
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="#"><img src="img/trump.jfif" alt</a>
-          <a class="navbar-brand" href="#">Trump Tweets</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Random</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Favorites</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Retweets</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Targets</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-      -->
-<!--
-      <ul class="nav flex-column navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#"><img src="img/trump.jfif" alt</a>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Active</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-        </li>
-      </ul>
-
-#Random Section
-    <section id="random">
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <div class="col">
-                        <h1>Date:</h1>
-                        <p>Lorem ipsum</p>
-                        <h1>Target:</h1>
-                        <p>Lorem ipsum</p>
-                        <h1>Tweet Number:</h1>
-                        <p>Lorem ipsum</p>
-                    </div>
-                </div>
-            </div>
-            <div class="card" style="width: 20rem;">
-                    <div class="card-body">
-                        <h5 class="card-title">Random Tweet</h5>
-                        <p class="card-text">Lorem ipsum</p>
-                    </div>
-            </div>
-        </div>
-    </section>
-#Random Section End
-
-#Favorites Section
-
-    <section id="favorites">
-        <div class="container">
-            <div class="card" style="width: 20rem;">
-                <div class="col">
-                    <h1>Nach Ereigniss filtern:</h1>
-                    <div class="btn-group">
-                        <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                              Small button
-                        </button>
-                        <ul class="dropdown-menu">
-                              ...
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <h1>Zusatzinfos</h1>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <div class="col">
-                            <h1>Date:</h1>
-                            <p>Lorem ipsum</p>
-                            <h1>Target:</h1>
-                            <p>Lorem ipsum</p>
-                            <h1>Tweet Number:</h1>
-                            <p>Lorem ipsum</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-#Favorites Section End
--->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
   </body>
 </html>
