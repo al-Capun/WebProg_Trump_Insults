@@ -26,8 +26,8 @@ body {
     top: 0; /* Stay at the top */
     left: 0;
     background-color: #rgb(230, 230, 230); /* Black */
-    padding-top: 10px;
-    padding-left: 100px;
+    padding-top: 20px;
+    padding-left: 75px;
   }
   
   /* The navigation menu links */
@@ -42,7 +42,7 @@ body {
   
   /* When you mouse over the navigation links, change their color */
   .sidenav a:hover {
-    color: rgb(65, 201, 225);
+    color: black;
   }
   
   /* Style page content */
@@ -88,6 +88,16 @@ body {
     text-align: left;
     margin-bottom: 20px;
     margin-top: 20px;
+    margin-left: 20px;
+}
+
+.section-one p {
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 600;
+    color: black;
+    text-align: left;
+    margin-left: 20px;
 }
 
 .col p{
@@ -108,7 +118,7 @@ body {
 .card-textI {
     color: rgb(95, 94, 94);
     font-weight: 500;
-    margin-top: 280px;
+    margin-top: 60px;
 }
 
 .card.one {
@@ -132,7 +142,7 @@ body {
     text-transform: uppercase;
     font-size: 16px;
     font-weight: 600;
-    color: gray;
+    color:black;
     text-align: left;
     margin-bottom: 20px;
     margin-top: 20px;
@@ -174,14 +184,17 @@ body {
 }
 
 .card-descriptionI {
-    color:  rgb(95, 94, 94);
-    font-weight: 500;
     padding-top: 150px;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 600;
+    color: black;
+    text-align: left;
 
 }
 
 .card-descriptionII {
-    color:  rgb(95, 94, 94);
+    color: black;
     font-weight: 500;
     padding-top: 20px;
 
