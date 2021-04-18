@@ -17,9 +17,9 @@
       <img src="img/trump.jfif" class="sidenav-img">
       <div class="sidenav">
         <a href="#random">Random</a>
-        <a href="#favorites">Favorites</a>
-        <a href="#retweets">Retweets</a>
-        <a href="#targets">Targets</a>
+        <a href="#keywords">Top Keywords</a>
+        <a href="#targetI">Target Organisation</a>
+        <a href="#targetII">Target People</a>
       </div>
     </div>
 
@@ -30,7 +30,7 @@
 
           </div>
           <div class="col-sm-7">
-            <p class="card-textI">Hier findest du zufällige Beleidigungen von Trump auf Twitter im Zeitraum Mai 2015 bis November 2019.</p>
+            <p class="card-textI">Here you can find random Twitter insults from Trump during the period of May 2015 until November 2019.</p>
             <div class="card one" style="width: 40rem;">
               <div class="card-body">
                   <p class="card-text">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam</p>
@@ -58,8 +58,8 @@
           </div>
           <div class="col-sm-7">
             <p class="card-pfeil">
-              <a href="#favorites" class="btn btn-default btn-lg card-pfeil-icon" role="button" aria-pressed="true">
-                Favorites
+              <a href="#keywords" class="btn btn-default btn-lg card-pfeil-icon" role="button" aria-pressed="true">
+                Top Keywords
                 </br>
                 <span class="fas fa-chevron-down"></span>
               </a>
@@ -68,23 +68,23 @@
         </div>
       </section>
       
-      <!--Favorites Section-->
-      <section id="favorites" class="section-two">
+      <!--Top Keywords Section-->
+      <section id="keywords" class="section-two">
         <div class="row">
           <div class="col-sm-2">
           </div>
 
           <div class="col-sm-7">
-            <p class="card-descriptionI">Diese Tweets haben die meisten Likes auf Twitter erhalten.</p>
-            <img src="img/graph.jfif" class="img-fluid" alt="img-fluid">
-            <p class="card-descriptionII">Fahre über die Grafik für mehr Informationen.</p>
+            <p class="card-descriptionI">Those keywords where used most often by Trump.</p>
+            <img src="img/keywords.PNG" class="img-fluid" alt="img-fluid">
+            <p class="card-descriptionII">Slide over the graph for more information.</p>
           </div>
 
           <div class="col-sm-3">
             <div class="container">
               <div class="card-two" style="width: 20rem;">
                   <div class="col">
-                      <h1>Nach Ereigniss filtern:</h1>
+                      <h1>Filter by keywords:</h1>
                       <div class="btn-group">
                           <button class="btn btn-light btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Lorem ipsum
@@ -97,14 +97,78 @@
               </div>
               <div class="row">
                   <div class="col">
-                      <h1>Zusatzinfos</h1>
+                      <h1>Additional information</h1>
                   </div>
                   <div class="row">
                       <div class="col">
                           <div class="col">
+                              <h2>Keyword:</h1>
+                              <p>Lorem ipsum</p>
+                              <h2>Tweet:</h1>
+                              <p>Lorem ipsum</p>
                               <h2>Date:</h1>
                               <p>Lorem ipsum</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-next">
+        <div class="row">
+          <div class="col-sm-2">
+          </div>
+          <div class="col-sm-7">
+            <p class="card-pfeil">
+              <a href="#targetI" class="btn btn-default btn-lg card-pfeil-icon" role="button" aria-pressed="true">
+                Target I
+                </br>
+                <span class="fas fa-chevron-down"></span>
+              </a>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!--Target Org. Section-->
+      <section id="targetI" class="section-two">
+        <div class="row">
+          <div class="col-sm-2">
+          </div>
+
+          <div class="col-sm-7">
+            <p class="card-descriptionI">These are Trumps top organisation targets.</p>
+            <img src="img/target II.PNG" class="img-fluid" alt="img-fluid">
+          </div>
+
+          <div class="col-sm-3">
+            <div class="container">
+              <div class="card-two" style="width: 20rem;">
+                  <div class="col">
+                      <h1>Filter by target:</h1>
+                      <div class="btn-group">
+                          <button class="btn btn-light btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Lorem ipsum
+                          </button>
+                          <ul class="dropdown-menu">
+                                ...
+                          </ul>
+                      </div>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col">
+                      <h1>Additional information</h1>
+                  </div>
+                  <div class="row">
+                      <div class="col">
+                          <div class="col">
                               <h2>Target:</h1>
+                              <p>Lorem ipsum</p>
+                              <h2>Tweet:</h1>
                               <p>Lorem ipsum</p>
                               <h2>Tweet Number:</h1>
                               <p>Lorem ipsum</p>
@@ -123,8 +187,8 @@
           </div>
           <div class="col-sm-7">
             <p class="card-pfeil">
-              <a href="#retweets" class="btn btn-default btn-lg card-pfeil-icon" role="button" aria-pressed="true">
-                Retweets
+              <a href="#targetII" class="btn btn-default btn-lg card-pfeil-icon" role="button" aria-pressed="true">
+                Target People
                 </br>
                 <span class="fas fa-chevron-down"></span>
               </a>
@@ -133,32 +197,51 @@
         </div>
       </section>
 
-      <!--Retweets Section-->
-      <section id="retweets">
+      <!--Target People-->
+      <section id="targetII" class="section-two">
         <div class="row">
           <div class="col-sm-2">
-
           </div>
+
           <div class="col-sm-7">
-            
+            <p class="card-descriptionI">These are Trumps top people targets.</p>
+            <img src="img/target I.PNG" class="img-fluid" alt="img-fluid">
+            <img src="img/wordcloud target I.PNG" class="img-fluid" alt="img-fluid">
           </div>
+
           <div class="col-sm-3">
-
-          </div>
-        </div>
-      </section>
-
-      <!--Target Section-->
-      <section id="targets">
-        <div class="row">
-          <div class="col-sm-2">
-
-          </div>
-          <div class="col-sm-7">
-
-          </div>
-          <div class="col-sm-3">
-
+            <div class="container">
+              <div class="card-two" style="width: 20rem;">
+                  <div class="col">
+                      <h1>Filter by target:</h1>
+                      <div class="btn-group">
+                          <button class="btn btn-light btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Lorem ipsum
+                          </button>
+                          <ul class="dropdown-menu">
+                                ...
+                          </ul>
+                      </div>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col">
+                      <h1>Additional information</h1>
+                  </div>
+                  <div class="row">
+                      <div class="col">
+                          <div class="col">
+                              <h2>Target:</h1>
+                              <p>Lorem ipsum</p>
+                              <h2>Tweet:</h1>
+                              <p>Lorem ipsum</p>
+                              <h2>Tweet Number:</h1>
+                              <p>Lorem ipsum</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
