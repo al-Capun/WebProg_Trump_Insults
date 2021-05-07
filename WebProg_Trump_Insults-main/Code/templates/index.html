@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css')}}">
+    <title>Trump Twitter</title>
+  </head>
+  <body>
+
+    <!--Sidebar fixed-->
+    <div class="sidenav-container">
+      <img src="{{ url_for('static', filename='img/trump.jfif')}}" class="sidenav-img">
+      <div class="sidenav">
+        <a href="#random">Random</a>
+        <a href="#keywords">Top keywords</a>
+        <a href="#targetI">Target organisation</a>
+        <a href="#targetII">Target people</a>
+      </div>
+    </div>
+
+      <!--Random Section-->
+      <section id="random" class="section-one">
+        <div class="row">
+          <div class="col-sm-2">
+
+          </div>
+          <div class="col-sm-7">
+            <img src="{{ url_for('static', filename='img/twitteraccount.jpg')}}" class="img-fluid" alt="img-fluid">
+            <p class="card-textI">Here you can find random Twitter insults from Trump during the period of May 2015 until November 2019.</p>
+            <div class="card one" style="width: 43rem;">
+              <div class="card-body">
+                  <p id="random_insult" class="card-text">{{tweet.tweet}}</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-3">
+              <div class="col">
+                  <div class="col">
+                      <h1>Date:</h1>
+                      <p id="date">{{tweet.date}}</p>
+                      <h1>Target:</h1>
+                      <p id="target">{{tweet.target}}</p>
+                      <h1>Tweet Number:</h1>
+                      <p id="tweet-nr">{{tweet.FIELD1}}</p>
+                  </div>
+              </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-next">
+        <div class="row">
+          <div class="col-sm-2">
+          </div>
+          <div class="col-sm-7">
+            <p class="card-pfeil">
+              <a href="#keywords" class="btn btn-default btn-lg card-pfeil-icon" role="button" aria-pressed="true">
+                Top keywords
+                </br>
+                <span class="fas fa-chevron-down"></span>
+              </a>
+            </p>
+          </div>
+        </div>
+      </section>
+      
+      <!--Top Keywords Section-->
+      <section id="keywords" class="section-two">
+        <div class="row">
+          <div class="col-sm-2">
+          </div>
+
+          <div class="col-sm-7">
+            <p class="card-descriptionI">Those keywords where used most often by Trump.</p>
+            <img src="{{ url_for('static', filename='img/keywords.PNG')}}" class="img-fluid" alt="img-fluid">
+            <p class="card-descriptionII">Slide over the graph for more information.</p>
+          </div>
+
+          <div class="col-sm-3">
+            <div class="container">
+              <div class="card-two" style="width: 20rem;">
+                  <div class="col">
+                      <h1>Filter by keywords:</h1>
+                      <div class="btn-group">
+                          <button class="btn btn-light btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Fake
+                          </button>
+                          <ul class="dropdown-menu">
+                                ...
+                          </ul>
+                      </div>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col">
+                      <h1>Additional information</h1>
+                  </div>
+                  <div class="row">
+                      <div class="col">
+                          <div class="col">
+                              <h2>Keyword:</h1>
+                              <p>Fake</p>
+                              <h2>Tweet:</h1>
+                              <p>"I win an election easily, a great \"movement\" is verified, and crooked opponents try to belittle our victory with FAKE NEWS. A sorry state!"</p>
+                              <h2>Date:</h1>
+                              <p>2017-01-11</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-next">
+        <div class="row">
+          <div class="col-sm-2">
+          </div>
+          <div class="col-sm-7">
+            <p class="card-pfeil">
+              <a href="#targetI" class="btn btn-default btn-lg card-pfeil-icon" role="button" aria-pressed="true">
+                Target organisation
+                </br>
+                <span class="fas fa-chevron-down"></span>
+              </a>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!--Target Org. Section-->
+      <section id="targetI" class="section-two">
+        <div class="row">
+          <div class="col-sm-2">
+          </div>
+
+          <div class="col-sm-7">
+            <p class="card-descriptionI">These are Trumps top organisation targets.</p>
+            <img src="{{ url_for('static', filename='img/target II.PNG')}}" class="img-fluid" alt="img-fluid">
+          </div>
+
+          <div class="col-sm-3">
+            <div class="container">
+              <div class="card-two" style="width: 20rem;">
+                  <div class="col">
+                      <h1>Filter by target:</h1>
+                      <div class="btn-group">
+                          <button class="btn btn-light btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                CNN
+                          </button>
+                          <ul class="dropdown-menu">
+                                ...
+                          </ul>
+                      </div>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col">
+                      <h1>Additional information</h1>
+                  </div>
+                  <div class="row">
+                      <div class="col">
+                          <div class="col">
+                              <h2>Target:</h1>
+                              <p>CNN</p>
+                              <h2>Insult:</h1>
+                              <p>Fake News</p>
+                              <h2>Tweet:</h1>
+                              <p>"At 9:00 P.M. @CNN, of all places, is doing a Special Report on my daughter, Ivanka. Considering it is CNN, can't imagine it will be great!"</p>
+                              <h2>Date:</h1>
+                              <p>2020-12-30</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-next">
+        <div class="row">
+          <div class="col-sm-2">
+          </div>
+          <div class="col-sm-7">
+            <p class="card-pfeil">
+              <a href="#targetII" class="btn btn-default btn-lg card-pfeil-icon" role="button" aria-pressed="true">
+                Target people
+                </br>
+                <span class="fas fa-chevron-down"></span>
+              </a>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!--Target People-->
+      <section id="targetII" class="section-two">
+        <div class="row">
+          <div class="col-sm-2">
+          </div>
+
+          <div class="col-sm-7">
+            <p class="card-descriptionI">These are Trumps top people targets.</p>
+            <img src="{{ url_for('static', filename='img/target I.PNG')}}" class="img-fluid" alt="img-fluid">
+            <img src="{{ url_for('static', filename='img/wordcloud target I.PNG')}}" class="img-fluid" alt="img-fluid">
+          </div>
+
+          <div class="col-sm-3">
+            <div class="container">
+              <div class="card-two" style="width: 20rem;">
+                  <div class="col">
+                      <h1>Filter by target:</h1>
+                      <div class="btn-group">
+                          <button class="btn btn-light btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Joe Biden
+                          </button>
+                          <ul class="dropdown-menu">
+                                ...
+                          </ul>
+                      </div>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col">
+                      <h1>Additional information</h1>
+                  </div>
+                  <div class="row">
+                      <div class="col">
+                          <div class="col">
+                              <h2>Target:</h1>
+                              <p>Joe Biden</p>
+                              <h2>Insult:</h1>
+                              <p>Sleepy Joe</p>
+                              <h2>Tweet:</h1>
+                              <p>"I believe it will be Crazy Bernie Sanders vs. Sleepy Joe Biden as the two finalists to run against maybe the best Economy in the history of our Country (and MANY other great things)! I look forward to facing whoever it may be. May God Rest Their Soul!"</p>
+                              <h2>Date:</h1>
+                              <p>2019-04-17</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <!--Einbindung Javascript Files-->
+    <script src="{{ url_for('static', filename='js/bootstrap.js')}}
+    "></script>
+    <script
+    src="{{ url_for('static', filename='js/jquery.min.js')}}"
+></script>
+    <script src="{{ url_for('static', filename='js/main.js')}}"></script>
+  </body>
+</html>
