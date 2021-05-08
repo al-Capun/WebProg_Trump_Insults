@@ -18,17 +18,20 @@ def load_tweets():
 	return json_data
 
 
-@app.route('/')
-def index():
+def get_random_tweet():
 	tweets = load_tweets()
 	random_index = random.randint(0, len(tweets) - 1)
-	return render_template('index.html', tweet = tweets[random_index])
+	return tweets[random_index]
 
 
-@app.route('/tweets', methods=['POST'])
-def tweets():
-	tweets = load_tweets()
-	return tweets[0]
+@app.route('/')
+def index():
+	return render_template('index.html', tweet = get_random_tweet())
+
+
+@app.route('/random_tweet')
+def random_tweet():
+	return get_random_tweet()
 
 
 if __name__ == "__main__":
