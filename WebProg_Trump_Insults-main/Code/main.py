@@ -60,5 +60,35 @@ def keywords():
 	return get_bd_insult_words(count)
 
 
+
+#Funktion für Target Diagramm
+#	pro Tweet aus der Liste full_tweets wird das Tweet-Element mit der Kennung "insult" zur neuen Liste insult_list hinzugefügt
+#	mittels Counter werden gleiche Elemente in der Liste insult_list gezählt, erhalten dann den Wert, wie oft diese vorkommen und werden einmalig als einmaliger Eintrag in der Liste zusammengefasst
+#	mittels OrderedDict wird die insult_list nach den meist genannten Insults in die Liste sorted_insult_list übergeben, die Variable count definiert, wie viele Werte in diese Liste geschrieben werden sollen
+def get_targets(count=None):
+	target_list = []
+	full_tweets = load_tweets()
+	for tweet in full_tweets:
+		target_list.append(tweet["target"])
+	target_list = Counter(target_list)
+	if count: 
+		sorted_target_list = OrderedDict(target_list.most_common(count))
+	else:
+		sorted_target_list = OrderedDict(target_list)
+	#print(sorted_target_list)
+	return sorted_target_list
+
+#	die Variable count wird hier mit einem int-Wert aus dem Formular befüllt
+#	zurückgegeben wird das Resultat der Funktion get_bd_insult_words(count)
+@app.route('/targets')
+def targets():
+	reques_count = request.args.get("count")
+	if reques_count:
+		count = int(reques_count)
+		return get_targets(count)
+	else:
+		return get_targets()
+
+
 if __name__ == "__main__":
 	app.run(debug=True, port=5000)

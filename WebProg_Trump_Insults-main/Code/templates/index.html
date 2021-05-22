@@ -24,8 +24,8 @@
       <div class="sidenav">
         <a href="#random">Random</a>
         <a href="#keywords">Top keywords</a>
-        <a href="#targetI">Target organisation</a>
-        <a href="#targetII">Target people</a>
+        <a href="#targetI">Target overview</a>
+        <a href="#targetII">Target</a>
       </div>
     </div>
 
@@ -38,7 +38,7 @@
           <div class="col-sm-7">
             <img src="{{ url_for('static', filename='img/twitteraccount.jpg')}}" class="img-fluid" alt="img-fluid" width=100%>
             <p class="card-textI">Here you can find random Twitter insults from Trump during the period of May 2015 until November 2019.</p>
-            <div class="card one" style="width: 43rem;">
+            <div class="card one" style="width: 100%">
               <div class="card-body">
                   <p id="random_insult" class="card-text">{{tweet.tweet}}</p>
               </div>
@@ -143,42 +143,37 @@
           </div>
 
           <div class="col-sm-7">
-            <p class="card-descriptionI">These are Trumps top organisation targets.</p>
-            <img src="{{ url_for('static', filename='img/target II.PNG')}}" class="img-fluid" alt="img-fluid">
+            <p class="card-descriptionI">These are Trumps top targets.</p>
+            <!--Targetdiagramm-->
+            <canvas id="myTargetChart" id="updateTargetChartForm" style="width:100%"></canvas>
+            <!--Ende-->
           </div>
-
           <div class="col-sm-3">
             <div class="container">
               <div class="card-two" style="width: 20rem;">
                   <div class="col">
-                      <h1>Filter by target:</h1>
-                      <div class="btn-group">
-                          <button class="btn btn-light btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                CNN
-                          </button>
-                          <ul class="dropdown-menu">
-                                ...
-                          </ul>
+                    <form id="updateTargetChartForm">
+                      <div class="form-group">
+                        <label for="targetCountSelect"><h1>Number of Targets:</h1></label>
+                        <select class="form-control" id="targetCountSelect">
+                          <option>1</option>
+                          <option>2</option>
+                          <option>3</option>
+                          <option>4</option>
+                          <option>5</option>
+                          <option>10</option>
+                          <option>15</option>
+                          <option>20</option>
+                          <option>25</option>
+                          <option>30</option>
+                          <option>35</option>
+                          <option>40</option>
+                          <option>45</option>
+                          <option>50</option>
+                        </select>
                       </div>
-                  </div>
-              </div>
-              <div class="row">
-                  <div class="col">
-                      <h1>Additional information</h1>
-                  </div>
-                  <div class="row">
-                      <div class="col">
-                          <div class="col">
-                              <h2>Target:</h1>
-                              <p>CNN</p>
-                              <h2>Insult:</h1>
-                              <p>Fake News</p>
-                              <h2>Tweet:</h1>
-                              <p>"At 9:00 P.M. @CNN, of all places, is doing a Special Report on my daughter, Ivanka. Considering it is CNN, can't imagine it will be great!"</p>
-                              <h2>Date:</h1>
-                              <p>2020-12-30</p>
-                          </div>
-                      </div>
+                      <button type="submit" class="btn btn-primary" id="updateTargetChartButton">Update Chart</button>
+                    </form>
                   </div>
               </div>
             </div>
@@ -209,8 +204,33 @@
           </div>
 
           <div class="col-sm-7">
-            <p class="card-descriptionI">These are Trumps top people targets.</p>
-            <img src="{{ url_for('static', filename='img/target I.PNG')}}" class="img-fluid" alt="img-fluid">
+            <form id="updateTargetForm">
+              <div class="form-group">
+                <label for="targetSelect"><h1>Target of interest:</h1></label>
+                <select class="form-control" id="targetSelect">
+                </select>
+              </div>
+              <button type="submit" class="btn btn-primary" id="updateTargetButton">Update Target</button>
+            </form>
+            <div class="row">
+              <div class="col">
+                <h1>First Tweet about this target</h1>
+              </div>
+              <div class="row">
+                  <div class="col">
+                      <div class="col">
+                          <h2>Target:</h1>
+                          <p>CNN</p>
+                          <h2>Date:</h1>
+                          <p>2020-12-30</p>
+                          <h2>Insult:</h1>
+                          <p>Fake News</p>
+                          <h2>Tweet:</h1>
+                          <p>"At 9:00 P.M. @CNN, of all places, is doing a Special Report on my daughter, Ivanka. Considering it is CNN, can't imagine it will be great!"</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
 
 
 
@@ -263,6 +283,7 @@
     <!--Einbindung Javascript Files-->
     <script src="{{ url_for('static', filename='js/bootstrap.js')}}"></script>
     <script src="{{ url_for('static', filename='js/jquery.min.js')}}"></script>
+    <script src="{{ url_for('static', filename='js/Chart.js')}}"></script> <!--Liniendiagramm-->
     <script src="{{ url_for('static', filename='js/jQWCloudv3.4.1.js')}}"></script> <!--Wordcloud-->
     <script src="{{ url_for('static', filename='js/nprogress.js')}}"></script> <!--Ladebalken-->
     <script src="{{ url_for('static', filename='js/main.js')}}"></script>
