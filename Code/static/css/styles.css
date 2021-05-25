@@ -196,3 +196,8 @@ img {
     max-width: 70px;
     padding-top: 20px;
 }
+
+#wordCloud {
+    min-width: 700px;
+    min-height: 700px;
+}

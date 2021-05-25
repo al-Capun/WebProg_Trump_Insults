@@ -4,9 +4,17 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+     <!--Balkendiagramm-->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.2.0/chart.min.js" integrity="sha512-VMsZqo0ar06BMtg0tPsdgRADvl0kDHpTbugCBBrL55KmucH6hP9zWdLIWY//OTfMnzz6xWQRxQqsUFefwHuHyg==" crossorigin="anonymous"></script>
+
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/nprogress.css')}}"> <!--Ladebalken-->
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css')}}">
     <title>Trump Twitter</title>
+    <!--warum scrips am Anfang?-->
+    <!--<script src="{{ url_for('static', filename='js/jquery.min.js')}}"></script>
+    <script src="{{ url_for('static', filename='js/jQWCloudv3.4.1.js')}}"></script>
+    <script src="{{ url_for('static', filename='js/main.js')}}"></script>-->
   </head>
   <body>
 
@@ -16,8 +24,8 @@
       <div class="sidenav">
         <a href="#random">Random</a>
         <a href="#keywords">Top keywords</a>
-        <a href="#targetI">Target organisation</a>
-        <a href="#targetII">Target people</a>
+        <a href="#targetI">Target overview</a>
+        <a href="#targetII">Target</a>
       </div>
     </div>
 
@@ -28,9 +36,9 @@
 
           </div>
           <div class="col-sm-7">
-            <img src="{{ url_for('static', filename='img/twitteraccount.jpg')}}" class="img-fluid" alt="img-fluid">
+            <img src="{{ url_for('static', filename='img/twitteraccount.jpg')}}" class="img-fluid" alt="img-fluid" width=100%>
             <p class="card-textI">Here you can find random Twitter insults from Trump during the period of May 2015 until November 2019.</p>
-            <div class="card one" style="width: 43rem;">
+            <div class="card one" style="width: 100%">
               <div class="card-body">
                   <p id="random_insult" class="card-text">{{tweet.tweet}}</p>
               </div>
@@ -75,44 +83,39 @@
           </div>
 
           <div class="col-sm-7">
-            <p class="card-descriptionI">Those keywords where used most often by Trump.</p>
-            <img src="{{ url_for('static', filename='img/keywords.PNG')}}" class="img-fluid" alt="img-fluid">
-            <p class="card-descriptionII">Slide over the graph for more information.</p>
+            <p class="card-descriptionI">Those insults where used most often by Trump.</p>
+            <!--Balkendiagramm-->
+            <canvas id="myChart" id="updateChartForm" width="400" height="400"></canvas>
+            <!--Ende-->
           </div>
-
           <div class="col-sm-3">
             <div class="container">
               <div class="card-two" style="width: 20rem;">
                   <div class="col">
-                      <h1>Filter by keywords:</h1>
-                      <div class="btn-group">
-                          <button class="btn btn-light btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Fake
-                          </button>
-                          <ul class="dropdown-menu">
-                                ...
-                          </ul>
-                      </div>
+                      <form id="updateChartForm">
+                        <div class="form-group">
+                          <label for="keywordCountSelect"><h1>Number of Insults:</h1></label>
+                          <select class="form-control" id="keywordCountSelect">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>10</option>
+                            <option>15</option>
+                            <option>20</option>
+                            <option>25</option>
+                            <option>30</option>
+                            <option>35</option>
+                            <option>40</option>
+                            <option>45</option>
+                            <option>50</option>
+                          </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary" id="updateChartButton">Update Chart</button>
+                      </form>
                   </div>
               </div>
-              <div class="row">
-                  <div class="col">
-                      <h1>Additional information</h1>
-                  </div>
-                  <div class="row">
-                      <div class="col">
-                          <div class="col">
-                              <h2>Keyword:</h1>
-                              <p>Fake</p>
-                              <h2>Tweet:</h1>
-                              <p>"I win an election easily, a great \"movement\" is verified, and crooked opponents try to belittle our victory with FAKE NEWS. A sorry state!"</p>
-                              <h2>Date:</h1>
-                              <p>2017-01-11</p>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-            </div>
           </div>
         </div>
       </section>
@@ -140,42 +143,37 @@
           </div>
 
           <div class="col-sm-7">
-            <p class="card-descriptionI">These are Trumps top organisation targets.</p>
-            <img src="{{ url_for('static', filename='img/target II.PNG')}}" class="img-fluid" alt="img-fluid">
+            <p class="card-descriptionI">These are Trumps top targets.</p>
+            <!--Targetdiagramm-->
+            <canvas id="myTargetChart" id="updateTargetChartForm" style="width:100%"></canvas>
+            <!--Ende-->
           </div>
-
           <div class="col-sm-3">
             <div class="container">
               <div class="card-two" style="width: 20rem;">
                   <div class="col">
-                      <h1>Filter by target:</h1>
-                      <div class="btn-group">
-                          <button class="btn btn-light btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                CNN
-                          </button>
-                          <ul class="dropdown-menu">
-                                ...
-                          </ul>
+                    <form id="updateTargetChartForm">
+                      <div class="form-group">
+                        <label for="targetCountSelect"><h1>Number of Targets:</h1></label>
+                        <select class="form-control" id="targetCountSelect">
+                          <option>1</option>
+                          <option>2</option>
+                          <option>3</option>
+                          <option>4</option>
+                          <option>5</option>
+                          <option>10</option>
+                          <option>15</option>
+                          <option>20</option>
+                          <option>25</option>
+                          <option>30</option>
+                          <option>35</option>
+                          <option>40</option>
+                          <option>45</option>
+                          <option>50</option>
+                        </select>
                       </div>
-                  </div>
-              </div>
-              <div class="row">
-                  <div class="col">
-                      <h1>Additional information</h1>
-                  </div>
-                  <div class="row">
-                      <div class="col">
-                          <div class="col">
-                              <h2>Target:</h1>
-                              <p>CNN</p>
-                              <h2>Insult:</h1>
-                              <p>Fake News</p>
-                              <h2>Tweet:</h1>
-                              <p>"At 9:00 P.M. @CNN, of all places, is doing a Special Report on my daughter, Ivanka. Considering it is CNN, can't imagine it will be great!"</p>
-                              <h2>Date:</h1>
-                              <p>2020-12-30</p>
-                          </div>
-                      </div>
+                      <button type="submit" class="btn btn-primary" id="updateTargetChartButton">Update Chart</button>
+                    </form>
                   </div>
               </div>
             </div>
@@ -190,7 +188,7 @@
           <div class="col-sm-7">
             <p class="card-pfeil">
               <a href="#targetII" class="btn btn-default btn-lg card-pfeil-icon" role="button" aria-pressed="true">
-                Target people
+                Word Cloud
                 </br>
                 <span class="fas fa-chevron-down"></span>
               </a>
@@ -205,47 +203,11 @@
           <div class="col-sm-2">
           </div>
 
-          <div class="col-sm-7">
-            <p class="card-descriptionI">These are Trumps top people targets.</p>
-            <img src="{{ url_for('static', filename='img/target I.PNG')}}" class="img-fluid" alt="img-fluid">
-            <img src="{{ url_for('static', filename='img/wordcloud target I.PNG')}}" class="img-fluid" alt="img-fluid">
-          </div>
+          <div class="col-sm-10">
 
-          <div class="col-sm-3">
-            <div class="container">
-              <div class="card-two" style="width: 20rem;">
-                  <div class="col">
-                      <h1>Filter by target:</h1>
-                      <div class="btn-group">
-                          <button class="btn btn-light btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Joe Biden
-                          </button>
-                          <ul class="dropdown-menu">
-                                ...
-                          </ul>
-                      </div>
-                  </div>
-              </div>
-              <div class="row">
-                  <div class="col">
-                      <h1>Additional information</h1>
-                  </div>
-                  <div class="row">
-                      <div class="col">
-                          <div class="col">
-                              <h2>Target:</h1>
-                              <p>Joe Biden</p>
-                              <h2>Insult:</h1>
-                              <p>Sleepy Joe</p>
-                              <h2>Tweet:</h1>
-                              <p>"I believe it will be Crazy Bernie Sanders vs. Sleepy Joe Biden as the two finalists to run against maybe the best Economy in the history of our Country (and MANY other great things)! I look forward to facing whoever it may be. May God Rest Their Soul!"</p>
-                              <h2>Date:</h1>
-                              <p>2019-04-17</p>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-            </div>
+            <div id="wordCloud"></div>
+
+      
           </div>
         </div>
       </section>
@@ -253,11 +215,11 @@
     </div>
 
     <!--Einbindung Javascript Files-->
-    <script src="{{ url_for('static', filename='js/bootstrap.js')}}
-    "></script>
-    <script
-    src="{{ url_for('static', filename='js/jquery.min.js')}}"
-></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.js')}}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.min.js')}}"></script>
+    <script src="{{ url_for('static', filename='js/Chart.js')}}"></script> <!--Liniendiagramm-->
+    <script src="{{ url_for('static', filename='js/jQWCloudv3.4.1.js')}}"></script> <!--Wordcloud-->
+    <script src="{{ url_for('static', filename='js/nprogress.js')}}"></script> <!--Ladebalken-->
     <script src="{{ url_for('static', filename='js/main.js')}}"></script>
   </body>
 </html>
