@@ -78,10 +78,10 @@ def get_targets(count=None):
 	#print(sorted_target_list)
 	return sorted_target_list
 
-def get_insults():
+def get_insults(count):
 	insult_list = []
 	full_tweets = load_tweets()
-	for tweet in full_tweets:
+	for tweet in full_tweets[:count + 1]:
 		insult_list.append(tweet["insult"])
 	insult_list = Counter(insult_list)
 	sorted_insult_list = OrderedDict(insult_list)
@@ -99,9 +99,9 @@ def targets():
 		return get_targets()
 
 
-@app.route('/Wordcloud')
-def Wordcloud():
-	insults = get_insults()
+@app.route('/Wordcloud/<int:count>')
+def Wordcloud(count):
+	insults = get_insults(count)
 	
 	wordcloud = {
 		"data": []	

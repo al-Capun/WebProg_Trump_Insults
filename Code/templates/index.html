@@ -22,27 +22,34 @@
     <div class="sidenav-container">
       <img src="{{ url_for('static', filename='img/trump.jfif')}}" class="sidenav-img">
       <div class="sidenav">
-        <a href="#random">Random</a>
-        <a href="#keywords">Top keywords</a>
-        <a href="#targetI">Target overview</a>
-        <a href="#targetII">Target</a>
+        <a href="#random">Random Tweet</a>
+        <a href="#keywords">Top Insults</a>
+        <a href="#targetI">Top Targets</a>
+        <a href="#targetII">Wordcloud</a>
       </div>
     </div>
 
       <!--Random Section-->
       <section id="random" class="section-one">
         <div class="row">
-          <div class="col-sm-2">
-
-          </div>
+          <div class="col-sm-2"></div>
           <div class="col-sm-7">
             <img src="{{ url_for('static', filename='img/twitteraccount.jpg')}}" class="img-fluid" alt="img-fluid" width=100%>
-            <p class="card-textI">Here you can find random Twitter insults from Trump during the period of May 2015 until November 2019.</p>
+          </div>
+          <div class="col-sm-3"></div>
+        </div>
+        <br>
+        <br>
+
+        <div class="row">
+            <div class="col-sm-2"></div>
+          <div class="col-sm-7">
+            <h class="display-6">Here you can find random Twitter insults from Trump during the period of May 2015 until November 2019.</h>
             <div class="card one" style="width: 100%">
+              <button type="button" class="btn btn-primary" id="randomTweetButton">Get Random Tweet</button>
               <div class="card-body">
                   <p id="random_insult" class="card-text">{{tweet.tweet}}</p>
               </div>
-              <button type="button" class="btn btn-primary" id="randomTweetButton">Get Random Tweet</button>
             </div>
           </div>
           <div class="col-sm-3">
@@ -59,22 +66,6 @@
           </div>
         </div>
       </section>
-
-      <section class="section-next">
-        <div class="row">
-          <div class="col-sm-2">
-          </div>
-          <div class="col-sm-7">
-            <p class="card-pfeil">
-              <a href="#keywords" class="btn btn-default btn-lg card-pfeil-icon" role="button" aria-pressed="true">
-                Top keywords
-                </br>
-                <span class="fas fa-chevron-down"></span>
-              </a>
-            </p>
-          </div>
-        </div>
-      </section>
       
       <!--Top Keywords Section-->
       <section id="keywords" class="section-two">
@@ -83,7 +74,7 @@
           </div>
 
           <div class="col-sm-7">
-            <p class="card-descriptionI">Those insults where used most often by Trump.</p>
+            <h class="display-6">Those insults where used most often by Trump.</h>
             <!--Balkendiagramm-->
             <canvas id="myChart" id="updateChartForm" width="400" height="400"></canvas>
             <!--Ende-->
@@ -124,15 +115,6 @@
         <div class="row">
           <div class="col-sm-2">
           </div>
-          <div class="col-sm-7">
-            <p class="card-pfeil">
-              <a href="#targetI" class="btn btn-default btn-lg card-pfeil-icon" role="button" aria-pressed="true">
-                Target organisation
-                </br>
-                <span class="fas fa-chevron-down"></span>
-              </a>
-            </p>
-          </div>
         </div>
       </section>
 
@@ -143,7 +125,7 @@
           </div>
 
           <div class="col-sm-7">
-            <p class="card-descriptionI">These are Trumps top targets.</p>
+            <h class="display-6">These are Trumps top targets.</h>
             <!--Targetdiagramm-->
             <canvas id="myTargetChart" id="updateTargetChartForm" style="width:100%"></canvas>
             <!--Ende-->
@@ -181,21 +163,7 @@
         </div>
       </section>
 
-      <section class="section-next">
-        <div class="row">
-          <div class="col-sm-2">
-          </div>
-          <div class="col-sm-7">
-            <p class="card-pfeil">
-              <a href="#targetII" class="btn btn-default btn-lg card-pfeil-icon" role="button" aria-pressed="true">
-                Word Cloud
-                </br>
-                <span class="fas fa-chevron-down"></span>
-              </a>
-            </p>
-          </div>
-        </div>
-      </section>
+
 
       <!--Target People-->
       <section id="targetII" class="section-two">
@@ -204,6 +172,7 @@
           </div>
 
           <div class="col-sm-10">
+          <h class="display-6">A Wordcloud of Trumps top insults.</h>
 
             <div id="wordCloud"></div>
 

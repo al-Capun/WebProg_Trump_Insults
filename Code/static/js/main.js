@@ -232,14 +232,14 @@ $.get("/targets", function (data) {
 })
 
 //get Wordcloud
-$.get("/Wordcloud", function (data) {
+$.get("/Wordcloud/20", function (data) {
     console.log(data)
 // Link: https://github.com/lucaong/jQCloud
     $("#wordCloud").jQWCloud({
 
 		words: data.data,
 		//cloud_color: 'yellow',		
-		minFont: 2,
+		minFont: 10,
 		maxFont: 50,
 		//fontOffset: 5,
 		//cloud_font_family: 'Owned',
@@ -253,10 +253,7 @@ $.get("/Wordcloud", function (data) {
 		},
 		word_mouseOut :function(){
 			$(this).css("text-decoration","none");	
-		},
-		word_click: function(){ 			
-			alert("You have selected:" +$(this).text());
-		},		              
+		},            
 	});
 })
 
