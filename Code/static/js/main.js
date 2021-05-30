@@ -1,13 +1,24 @@
-// Referenz zum Random Button speichern.
+//Random Tweets Variablen, welche im HTML Code eingesetzt werden
+// Referenz zum Random Button speichern
 let randomTweetButton = $("#randomTweetButton");
+// Referenz zum Insult Text
 let random_insult = $("#random_insult");
+// Referenz zum Datum des Insults
 let date = $("#date");
+// Referenz zum Target des Insults
 let target = $("#target");
+// Referenz zur ID des Insults
 let tweet_nr = $("#tweet-nr");
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //Balkendiagramm Variablen, welche im HTML Code eingesetzt werden
+// Referenz zum Balkendiagramm und zugehörigen Formular 
 let updateChartForm = $("#updateChartForm")
+// Referenz zum Dropdown des Formulars
 let keywordCountSelect = $("#keywordCountSelect")
+// Referenz zum canvas Element
 let ctx = document.getElementById('myChart').getContext('2d');
+// Variable myChart: hier werden Initialwerte fürs Balkendiagramm mitgegeben
 let myChart = new Chart(ctx, {
     type: 'bar',
     data: {
@@ -45,9 +56,13 @@ let myChart = new Chart(ctx, {
     }
 })
 
-//Targetdiagramm Variablen, welche im HTML Code eingesetzt werden
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//Kuchendiagramm Variablen, welche im HTML Code eingesetzt werden
+// Referenz Kuchendiagramm und zugehörigem Formular
 let updateTargetChartForm = $("#updateTargetChartForm")
+// Referenz zum Dropdown des Formulars
 let targetCountSelect = $("#targetCountSelect")
+// Variable myTargetChart: hier werden Initialwerte fürs Kuchendiagramm mitgegeben
 let myTargetChart = new Chart("myTargetChart", {
     type: "doughnut",
     data: {
@@ -72,25 +87,30 @@ let myTargetChart = new Chart("myTargetChart", {
     }
   });
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-//Target Select Variablen
-let targetSelect = $("#targetSelect")
-
-// Click Handler für Random Button registrieren.
-// in "click" ist eine Funktion gespeichert.
-// "function" -> wenn geklickt wird, führe folgende Funktion aus.
-// "data" = Antwort vom Server, also ein Random Tweet aus dem JSON File
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//Random Tweet
+// Click Handler für Random Button registrieren
+// in "click" ist eine Funktion gespeichert
+// "function" -> wenn geklickt wird, führe folgende Funktion aus
+// "data" = Antwort vom Server, also ein Random Tweet aus dem JSON File mit zugehörigen Informationen
+// Informationen werden in einzelne Text-Bereiche zugewiesen
 randomTweetButton.click(function (event) {
     $.get("/random_tweet", function (data) {
         random_insult.text(data.tweet)
         date.text(data.date)
         target.text(data.target)
         tweet_nr.text(data.FIELD1)
-        console.log(data)
+        //console.log(data)
     })
 })
 
-
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//Funktion Balken-/Kuchendiagramm: Farbvergabe der einzelnen Werte in den Diagrammen wird dynamisch mittels dieser Funktion gemacht
+// numberOfColors definiert wie viele random Farben generiert werden sollen mittels for-Schleife und dem counter i, der immer bei 0 startet und jeweils um 1 erhöht wird
+// mittels Math-Objekt wird eine random Zahl generiert, welche sich im HEX-Code Bereich befindet
+// mittels Formatierung als String und vorangehendem Hashtag wird ein vollwertiger HEX-Code in gebildet, der in die neu generierte Liste colors ergänzt wird
 function getRandomColors(numberOfColors) {
     colors = []
     for (i = 0; i < numberOfColors; i++) {
@@ -100,12 +120,14 @@ function getRandomColors(numberOfColors) {
     return colors;
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //Balkendiagramm
-//updateChartForm setzt die Variable count, welche in der JS-Funkiotn keywordsRequest(count) und der Pythonfunktion get_bd_insult_words(count) wiederverwendet wird
-//durch event.preventDefault, wird das standardmässige Verhalten des Submitbuttons unterbunden
-//Variable count wird ein Wert mitgegeben
-//JS-Funktion keywordsRequest(count) wird aufgerufen
+// updateChartForm setzt die Variable count, welche in der JS-Funkiotn keywordsRequest(count) und der Pythonfunktion get_bd_insult_words(count) wiederverwendet wird
+// durch event.preventDefault, wird das standardmässige Verhalten des Submitbuttons unterbunden
+// Variable count wird ein Wert mitgegeben
+// JS-Funktion keywordsRequest(count) wird aufgerufen
 updateChartForm.submit(function (event) {
     event.preventDefault()
     let count = keywordCountSelect.val()
@@ -144,15 +166,15 @@ function keywordsRequest(count) {
 
 //wurde die Funktion keywordsRequest(count) noch nicht aufgerufen, wird ein Standardwert von 5 mitgegeben, so werden default immer 5 Insults in der Grafik angezeigt
 keywordsRequest(5)
-//Balkendiagramm Ende
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-
-//Targetdiagramm
-//updateChartForm setzt die Variable count, welche in der JS-Funkiotn targetsRequest(count) und der Pythonfunktion get_targets(count) wiederverwendet wird
-//durch event.preventDefault, wird das standardmässige Verhalten des Submitbuttons unterbunden
-//Variable count wird ein Wert mitgegeben
-//JS-Funktion targetssRequest(count) wird aufgerufen
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//Kuchendiagramm
+// updateTargetChartForm setzt die Variable count, welche in der JS-Funkiotn targetsRequest(count) und der Pythonfunktion get_targets(count) wiederverwendet wird
+// durch event.preventDefault, wird das standardmässige Verhalten des Submitbuttons unterbunden
+// Variable count wird ein Wert mitgegeben
+// JS-Funktion targetsRequest(count) wird aufgerufen
 updateTargetChartForm.submit(function (event) {
     event.preventDefault()
     let count = targetCountSelect.val()
@@ -188,69 +210,29 @@ function targetsRequest(count) {
     })
 }
 
-
-function targetsRequestNoCount() {
-    NProgress.start();
-    $.get(`/targets`, function (result) {
-        let labels = Object.keys(result)
-        let data = Object.values(result)
-        //console.log(labels)
-        //console.log(data)
-        NProgress.done();
-    })
-}
-
-
 //wurde die Funktion targetsRequest(count) noch nicht aufgerufen, wird ein Standardwert von 5 mitgegeben, so werden default immer 5 Targets in der Grafik angezeigt
 targetsRequest(5)
-//Targetdiagramm Ende
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //Wordcloud
-//Funktion Liste von Targets in dict umwandeln
-//Funktion updateWordcloud
-
-
-$(document).ready(function()
-{
-
-    // $.getJSON("/static/json/trump_insult_tweets_2014_to_2021.json", function(data){
-    // }).fail(function(){
-    //     console.log("An error has occurred.");
-    // });
-    
-
-	
-	
-});
-
-
-//get Targets
-$.get("/targets", function (data) {
-    console.log(data)
-})
-
-//get Wordcloud
-$.get("/Wordcloud/20", function (data) {
-    console.log(data)
-// Link: https://github.com/lucaong/jQCloud
+//get Wordcloud: mittels .../80 werden 80 Werte definiert
+$.get("/Wordcloud/80", function (data) {
+    // WordCloud wird initiiert mittels Link: https://github.com/lucaong/jQCloud
+    //visuelle und haptische Standardwerte und Funktionalitäten werden gesetzt
     $("#wordCloud").jQWCloud({
-
-		words: data.data,
-		//cloud_color: 'yellow',		
+		words: data.data,		
 		minFont: 10,
 		maxFont: 50,
-		//fontOffset: 5,
-		//cloud_font_family: 'Owned',
 		verticalEnabled: true,
 		padding_left: 1,
-		//showSpaceDIV: true,
-		//spaceDIVColor: 'white',
-		word_common_classes: 'WordClass',		
+		word_common_classes: 'WordClass',
+        //Insults über welche sich die Maus bewegt sollen unterstrichen werden		
 		word_mouseEnter :function(){
 			$(this).css("text-decoration","underline");
 		},
+        //wenn sich die Maus wieder von diesem Insult weg bewegt, soll das Wort nicht mehr unterstrichen werden
 		word_mouseOut :function(){
 			$(this).css("text-decoration","none");	
 		},            

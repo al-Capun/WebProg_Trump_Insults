@@ -1,35 +1,33 @@
 <!doctype html>
 <html lang="en">
+
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--Balkendiagramm; Script muss am Anfang der Codes stehen-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.2.0/chart.min.js" integrity="sha512-VMsZqo0ar06BMtg0tPsdgRADvl0kDHpTbugCBBrL55KmucH6hP9zWdLIWY//OTfMnzz6xWQRxQqsUFefwHuHyg==" crossorigin="anonymous"></script>
 
-     <!--Balkendiagramm-->
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.2.0/chart.min.js" integrity="sha512-VMsZqo0ar06BMtg0tPsdgRADvl0kDHpTbugCBBrL55KmucH6hP9zWdLIWY//OTfMnzz6xWQRxQqsUFefwHuHyg==" crossorigin="anonymous"></script>
-
+    
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.css')}}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/nprogress.css')}}"> <!--Ladebalken-->
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css')}}">
     <title>Trump Twitter</title>
-    <!--warum scrips am Anfang?-->
-    <!--<script src="{{ url_for('static', filename='js/jquery.min.js')}}"></script>
-    <script src="{{ url_for('static', filename='js/jQWCloudv3.4.1.js')}}"></script>
-    <script src="{{ url_for('static', filename='js/main.js')}}"></script>-->
   </head>
-  <body>
 
+  <body>
     <!--Sidebar fixed-->
-    <div class="sidenav-container">
+    <div class="sidenav-container" style="width: 350px">
       <img src="{{ url_for('static', filename='img/trump.jfif')}}" class="sidenav-img">
       <div class="sidenav">
         <a href="#random">Random Tweet</a>
         <a href="#keywords">Top Insults</a>
-        <a href="#targetI">Top Targets</a>
-        <a href="#targetII">Wordcloud</a>
+        <a href="#targets">Top Targets</a>
+        <a href="#wordcloud">Wordcloud</a>
       </div>
     </div>
 
-      <!--Random Section-->
+    <!--Titelbild (bereits in Random Tweet Section eingegliedert)-->
       <section id="random" class="section-one">
         <div class="row">
           <div class="col-sm-2"></div>
@@ -41,12 +39,16 @@
         <br>
         <br>
 
-        <div class="row">
-            <div class="col-sm-2"></div>
+
+      <!--Random Tweet-->
+        <div class="row" style="height: 400px">
+          <div class="col-sm-2"></div>
           <div class="col-sm-7">
             <h class="display-6">Here you can find random Twitter insults from Trump during the period of May 2015 until November 2019.</h>
             <div class="card one" style="width: 100%">
-              <button type="button" class="btn btn-primary" id="randomTweetButton">Get Random Tweet</button>
+              <!--Auslösebutton für Random Tweet-->
+              <button type="button" class="btn btn-primary" id="randomTweetButton">Get Random Tweet</button> 
+              <!--Random generierter Tweet-->
               <div class="card-body">
                   <p id="random_insult" class="card-text">{{tweet.tweet}}</p>
               </div>
@@ -54,79 +56,73 @@
           </div>
           <div class="col-sm-3">
               <div class="col">
-                  <div class="col">
-                      <h1>Date:</h1>
-                      <p id="date">{{tweet.date}}</p>
-                      <h1>Target:</h1>
-                      <p id="target">{{tweet.target}}</p>
-                      <h1>Tweet Number:</h1>
-                      <p id="tweet-nr">{{tweet.FIELD1}}</p>
-                  </div>
+                <!--Zusatzinformationen zu random generiertem Tweet-->
+                <div class="col">
+                    <h1>Date:</h1>
+                    <p id="date">{{tweet.date}}</p>
+                    <h1>Target:</h1>
+                    <p id="target">{{tweet.target}}</p>
+                    <h1>Tweet Number:</h1>
+                    <p id="tweet-nr">{{tweet.FIELD1}}</p>
+                </div>
               </div>
           </div>
         </div>
       </section>
+     
       
       <!--Top Keywords Section-->
       <section id="keywords" class="section-two">
-        <div class="row">
+        <div class="row" style="height: 900px">
           <div class="col-sm-2">
           </div>
-
           <div class="col-sm-7">
             <h class="display-6">Those insults where used most often by Trump.</h>
             <!--Balkendiagramm-->
-            <canvas id="myChart" id="updateChartForm" width="400" height="400"></canvas>
-            <!--Ende-->
+            <canvas id="myChart" id="updateChartForm" width="400px" height="250px"></canvas>
           </div>
           <div class="col-sm-3">
             <div class="container">
               <div class="card-two" style="width: 20rem;">
                   <div class="col">
-                      <form id="updateChartForm">
-                        <div class="form-group">
-                          <label for="keywordCountSelect"><h1>Number of Insults:</h1></label>
-                          <select class="form-control" id="keywordCountSelect">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                            <option>10</option>
-                            <option>15</option>
-                            <option>20</option>
-                            <option>25</option>
-                            <option>30</option>
-                            <option>35</option>
-                            <option>40</option>
-                            <option>45</option>
-                            <option>50</option>
-                          </select>
-                        </div>
-                        <button type="submit" class="btn btn-primary" id="updateChartButton">Update Chart</button>
-                      </form>
+                    <!--Formular mit Dropdown, um Anzahl Insults zu bestimmen-->
+                    <form id="updateChartForm">
+                      <div class="form-group">
+                        <label for="keywordCountSelect"><h1>Number of Insults:</h1></label>
+                        <select class="form-control" id="keywordCountSelect" style="margin-bottom: 5px">
+                          <option>1</option>
+                          <option>2</option>
+                          <option>3</option>
+                          <option>4</option>
+                          <option>5</option>
+                          <option>10</option>
+                          <option>15</option>
+                          <option>20</option>
+                          <option>25</option>
+                          <option>30</option>
+                          <option>35</option>
+                          <option>40</option>
+                          <option>45</option>
+                          <option>50</option>
+                        </select>
+                      </div>
+                      <button type="submit" class="btn btn-primary" id="updateChartButton">Update Chart</button>
+                    </form>
                   </div>
               </div>
           </div>
         </div>
       </section>
 
-      <section class="section-next">
-        <div class="row">
+
+      <!--Target Section-->
+      <section id="targets" class="section-two">
+        <div class="row" style="height: 700px">
           <div class="col-sm-2">
           </div>
-        </div>
-      </section>
-
-      <!--Target Org. Section-->
-      <section id="targetI" class="section-two">
-        <div class="row">
-          <div class="col-sm-2">
-          </div>
-
           <div class="col-sm-7">
             <h class="display-6">These are Trumps top targets.</h>
-            <!--Targetdiagramm-->
+            <!--Kuchendiagramm-->
             <canvas id="myTargetChart" id="updateTargetChartForm" style="width:100%"></canvas>
             <!--Ende-->
           </div>
@@ -134,10 +130,11 @@
             <div class="container">
               <div class="card-two" style="width: 20rem;">
                   <div class="col">
+                    <!--Formular mit Dropdown, um Anzahl Targets zu bestimmen-->
                     <form id="updateTargetChartForm">
                       <div class="form-group">
                         <label for="targetCountSelect"><h1>Number of Targets:</h1></label>
-                        <select class="form-control" id="targetCountSelect">
+                        <select class="form-control" id="targetCountSelect" style="margin-bottom: 5px">
                           <option>1</option>
                           <option>2</option>
                           <option>3</option>
@@ -164,31 +161,26 @@
       </section>
 
 
-
-      <!--Target People-->
-      <section id="targetII" class="section-two">
-        <div class="row">
+      <!--Word Cloud-->
+      <section id="wordcloud" class="section-two">
+        <div class="row" style="height: 500px">
           <div class="col-sm-2">
           </div>
-
           <div class="col-sm-7">
-          <h class="display-6">A Wordcloud of Trumps top insults.</h>
-
-            <div id="wordCloud"></div>
-
-      
+          <h class="display-6">A Wordcloud of Trumps first 80 insults.</h>
+          <div id="wordCloud"></div>
           </div>
         </div>
       </section>
 
-    </div>
 
     <!--Einbindung Javascript Files-->
     <script src="{{ url_for('static', filename='js/bootstrap.js')}}"></script>
     <script src="{{ url_for('static', filename='js/jquery.min.js')}}"></script>
-    <script src="{{ url_for('static', filename='js/Chart.js')}}"></script> <!--Liniendiagramm-->
+    <script src="{{ url_for('static', filename='js/Chart.js')}}"></script> <!--Kuchendiagramm-->
     <script src="{{ url_for('static', filename='js/jQWCloudv3.4.1.js')}}"></script> <!--Wordcloud-->
     <script src="{{ url_for('static', filename='js/nprogress.js')}}"></script> <!--Ladebalken-->
     <script src="{{ url_for('static', filename='js/main.js')}}"></script>
+
   </body>
 </html>
