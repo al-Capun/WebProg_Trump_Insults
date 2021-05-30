@@ -9,25 +9,25 @@ body {
 
 /* sidebar */
 .sidenav-container {
-    width: 200px; /* Set the width of the sidebar */
+    width: 400px; /* Set the width of the sidebar */
     position: fixed; /* Fixed Sidebar (stay in place on scroll) */
     z-index: 1; /* Stay on top */
     top: 0; /* Stay at the top */
     left: 0;
-    background-color: rgb(230, 230, 230); /* Black */
+    background-color: #rgb(230, 230, 230); /* Black */
     padding-top: 10px;
     padding-left: 10px;
 }
 
 .sidenav {
-    width: 200px; /* Set the width of the sidebar */
+    width: 400px; /* Set the width of the sidebar */
     position: fixed; /* Fixed Sidebar (stay in place on scroll) */
     z-index: 1; /* Stay on top */
     top: 0; /* Stay at the top */
     left: 0;
-    background-color: rgb(230, 230, 230); /* Black */
+    background-color: #rgb(230, 230, 230); /* Black */
     padding-top: 20px;
-    padding-left: 75px; 
+    padding-left: 75px;
   }
   
   /* The navigation menu links */
